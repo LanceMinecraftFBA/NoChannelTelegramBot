@@ -8,6 +8,8 @@ import loader as l
 from telebot import async_telebot
 from telebot import types
 
+print(os.getcwd())
+
 PATH = "config.json"
 PATH_DB = "chats.json"
 PATH_SL = "save.json"
@@ -24,6 +26,7 @@ bot_info = types.User(0, True, "Null")
 
 @bot.message_handler(content_types=["text"])
 async def messages(msg: types.Message):
+    global bot_lang, lang
     bot_info = await bot.get_me()
     chat = {"id": msg.chat.id, "enabled": False}
     if(len(Chats) > 0):
