@@ -6,7 +6,7 @@
     "BOT_IN_CHAT_ENABLED": "<b>❕Now in this chat anonymous channels can't type messages</b>",
     "BOT_IN_CHAT_DISABLED": "<b>❕Now in this chat anonymous channels can type messages</b>",
     "BOT_JOINED": "<b>I was joined to \"{0}\" by \"{1}\"</b>",
-    "HELP": "<b>Availabe commands:</b>\n\n<b>- /help</b> - get bot commands\n<b>- /initialize_chat</b> - add chat to configuration\n<b>- /disable_chat</b> - disable chat protecting\n<b>- /enable_chat</b> - enable chat protecting\n<b>- /set_lang {lang}</b> - set other lang in bot",
+    "HELP": "<b>Avaliable commands:</b>\n\n<b>- /help</b> - get bot commands\n<b>- /initialize_chat</b> - add chat to configuration\n<b>- /disable_chat</b> - disable chat protecting\n<b>- /enable_chat</b> - enable chat protecting\n<b>- /set_lang {lang}</b> - set other lang in bot",
     "LANG_NOT_FOUND": "<b>🔍❌Language not found in folder lang. The language is specified incorrectly or does not exist in the folder</b>",
     "LANG_INSTALLED": "<b>☑️Language was installed!</b>"
 }
