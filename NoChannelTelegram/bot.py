@@ -72,7 +72,7 @@ async def messages(msg: types.Message):
             else:
                 for i in range(0, len(Chats)):
                     if int(Chats[i]["id"]) == msg.chat.id:
-                        Chats[i] == {"id": msg.chat.id, "enabled": False}
+                        Chats[i]["enabled"] = False
                         break
                 chats_writer.update_config(PATH_DB, {"chats": Chats})
                 await bot.send_message(msg.chat.id, bot_lang["BOT_IN_CHAT_DISABLED"], parse_mode='html')
@@ -89,7 +89,7 @@ async def messages(msg: types.Message):
             else:
                 for i in range(0, len(Chats)):
                     if int(Chats[i]["id"]) == msg.chat.id:
-                        Chats[i] == {"id": msg.chat.id, "enabled": True}
+                        Chats[i]["enabled"] = True
                         break
                 chats_writer.update_config(PATH_DB, {"chats": Chats})
                 await bot.send_message(msg.chat.id, bot_lang["BOT_IN_CHAT_ENABLED"], parse_mode='html')
@@ -99,7 +99,7 @@ async def messages(msg: types.Message):
                 temp_lang = l.load_lang(new_lang, PATH_LANG)
                 bot_lang = temp_lang
                 chats_writer.update_lang(PATH_SL, {"lang": new_lang})
-                await bot.send_message(msg.chat.id, lang["LANG_INSTALLED"], parse_mode="html")
+                await bot.send_message(msg.chat.id, bot_lang["LANG_INSTALLED"], parse_mode="html")
             except FileNotFoundError:
                 lang = l.load_lang(l.load_save(PATH_SL)["lang"], PATH_LANG)
                 await bot.send_message(msg.chat.id, bot_lang["LANG_NOT_FOUND"], parse_mode='html')
