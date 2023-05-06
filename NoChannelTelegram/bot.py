@@ -8,11 +8,10 @@ import loader as l
 from telebot import async_telebot
 from telebot import types
 
-#if working direction is renamed - edit PATH, PATH_DB, PATH_SL and PATH_LANG directions
-PATH = "NoChannelTelegram/config.json"
-PATH_DB = "NoChannelTelegram/chats.json"
-PATH_SL = "NoChannelTelegram/save.json"
-PATH_LANG = "NoChannelTelegram/lang"
+PATH = "config.json"
+PATH_DB = "chats.json"
+PATH_SL = "save.json"
+PATH_LANG = "lang"
 
 ANONIM_CHANNEL = 136817688 #DON'T EDIT THIS CONSTANT!!!
 
