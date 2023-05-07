@@ -15,7 +15,7 @@ git clone https://github.com/LanceMinecraftFBA/NoChannelTelegramBot.git
 ## Installation
 ### 1. Get bot token by BotFather
 ### 2. Past token in `config.json`
-##### Shema:
+##### Sсhema:
 ```json
 {
   "token": "your token here",
@@ -24,7 +24,7 @@ git clone https://github.com/LanceMinecraftFBA/NoChannelTelegramBot.git
 ```
 ### 3. Get your UserID in telegram with command `/getmyid`. This command working only in dialog with your bot.
 ### 4. Copy your UserID and past this in `config.json`
-##### Shema:
+##### Sсhema:
 ```json
 {
   "token": "token",
