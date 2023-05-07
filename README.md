@@ -37,3 +37,4 @@ git clone https://github.com/LanceMinecraftFBA/NoChannelTelegramBot.git
 - Chinese🇨🇳 (by @Corvych)
 - Ukranian🇺🇦 (by @sunphon1x)
 - Uzbek🇺🇿 (By @Vayner_Arkadiy)
+- Polish🇵🇱 (by @sunphon1x)
