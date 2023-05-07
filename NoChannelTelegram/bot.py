@@ -129,7 +129,7 @@ async def messages(msg: types.Message):
                     if Admins[i]["id"] == new_id:
                         is_admin = True
                         break
-                if is_admin == True:
+                if is_admin == False:
                     Admins.append({"id": new_id})
                     chats_writer.update_admins(PATH_AD, {"admins": Admins})
                     await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_ALLOWED"].replace("{0}", str(new_id)), parse_mode='html')
