@@ -1,0 +1,12 @@
+{
+    "CHAT_NOT_FOUND": "<b>📛找不到聊天配置!</b>用于初始化发送 /initialize_chat",
+    "CHAT_INITIALIZED": "<b>✅聊天已成功配置!</b>",
+    "CHAT_IS_INITIALIZED": "<b>👾聊天已经配置</b>",
+    "BOT_IS_NOT_ADMIN": "<b>🚫我没有删除匿名消息的管理员权利!</b>",
+    "BOT_IN_CHAT_ENABLED": "<b>❕现在, 在此聊天中，匿名频道无法发送消息</b>",
+    "BOT_IN_CHAT_DISABLED": "<b>❕现在, 在此聊天中，匿名频道可以发送消息</b>",
+    "BOT_JOINED": "<b>我加入了 \"{0}\" 经过 \"{1}\"</b>",
+    "HELP": "<b>可用命令:</b>\n\n<b>- /help</b> - 获取命令\n<b>- /initialize_chat</b> - 将聊天添加到配置\n<b>- /disable_chat</b> - 禁用聊天保护\n<b>- /enable_chat</b> - 启用聊天保护\n<b>- /set_lang {lang}</b> - 在机器人中设置其他语言",
+    "LANG_NOT_FOUND": "<b>🔍❌在我的语言列表中找不到语言。 该语言指定错误或我的列表中不存在</b>",
+    "LANG_INSTALLED": "<b>☑️设置了语言</b>"
+}
