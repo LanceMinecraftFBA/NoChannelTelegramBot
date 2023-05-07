@@ -1,0 +1,12 @@
+{
+    "CHAT_NOT_FOUND": "<b>📛Chat nie został zapisany w konfiguracji!</b> Aby dodać pokój rozmów, wprowadź polecenie /initialize_chat",
+    "CHAT_INITIALIZED": "<b>✅Czat został pomyślnie dodany do konfiguracji!</b>",
+    "CHAT_IS_INITIALIZED": "<b>👾Chat został już dodany do konfiguracji</b>",
+    "BOT_IS_NOT_ADMIN": "<b>🚫Nie mam uprawnień administratora do usuwania anonimowych wiadomości</b>",
+    "BOT_IN_CHAT_ENABLED": "<b>❕Teraz kanały anonimowe nie mogą pisać wiadomości na tym czacie</b>",
+    "BOT_IN_CHAT_DISABLED": "<b>❕Kanały anonimowe mogą teraz pisać wiadomości na tym czacie</b>",
+    "BOT_JOINED": "<b>Zostałem dodany do \"{0}\" użytkownika \"{1}\"</b>",
+    "HELP": "<b>Dostępne komendy:</b>\n\n<b>- /help</b> - Odbieranie poleceń bota\n<b>- /initialize_chat</b> - dodać chat do konfiguracji\n<b>- /disable_chat</b> - wyłącza ochronę w tym pokoju rozmów\n<b>- /enable_chat</b> - włącza z powrotem ochronę czatu\n<b>- /set_lang {język}</b> - Ustaw język dla bota",
+    "LANG_NOT_FOUND": "<b>🔍❌ Język nie został znaleziony w folderze lang. Język jest nieprawidłowy lub nie istnieje w folderze.</b>",
+    "LANG_INSTALLED": "<b>☑️Język zainstalowany z powodzeniem!</b>"
+}
