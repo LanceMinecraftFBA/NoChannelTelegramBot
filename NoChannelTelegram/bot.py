@@ -13,12 +13,14 @@ print(os.getcwd())
 PATH = "config.json"
 PATH_DB = "chats.json"
 PATH_SL = "save.json"
+PATH_AD = "admins.json"
 PATH_LANG = "lang"
 
 ANONIM_CHANNEL = 136817688 #DON'T EDIT THIS CONSTANT!!!
 
 BOT_CONFIG = l.load_config(PATH)
 Chats = l.load_chats(PATH_DB)["chats"]
+Admins = l.load_allowed_admins(PATH_AD)["admins"]
 
 bot_lang = l.load_lang(str(l.load_save(PATH_SL)["lang"]), PATH_LANG)
 bot = async_telebot.AsyncTeleBot(BOT_CONFIG["token"])
@@ -42,7 +44,7 @@ async def messages(msg: types.Message):
         else:
             await bot.delete_message(msg.chat.id, msg.message_id)
 
-    if msg.chat.id != msg.from_user.id and msg.from_user.id == int(BOT_CONFIG["owner"]):
+    if msg.chat.id != msg.from_user.id and (msg.from_user.id == int(BOT_CONFIG["owner"]) or (len(Admins) > 0 and Admins["id"] == msg.from_user.id)):
         if msg.text.lower() == "/initialize_chat" or msg.text.lower() == "/initialize_chat@" + bot_info.username.lower():
             chat_writen = False
             if(len(Chats) > 0):
@@ -105,7 +107,7 @@ async def messages(msg: types.Message):
                 await bot.send_message(msg.chat.id, bot_lang["LANG_NOT_FOUND"], parse_mode='html')
 
     elif msg.chat.id == msg.from_user.id:
-        if msg.text.lower().startswith("/set_lang "):
+        if msg.text.lower().startswith("/set_lang ") and msg.from_user.id == int(BOT_CONFIG["owner"]):
             new_lang = msg.text.lower().split(msg.text.lower().split(" ")[0])[1].lower().replace(" ", "")
             try:
                 temp_lang = l.load_lang(new_lang, PATH_LANG)
@@ -119,6 +121,31 @@ async def messages(msg: types.Message):
             await bot.send_message(msg.chat.id, bot_lang["HELP"], parse_mode='html')
         if msg.text.lower() == "/getmyid":
             await bot.send_message(msg.from_user.id, f"{msg.from_user.id}")
+        if msg.text.lower().startswith("/allowe_admin ") and msg.from_user.id == int(BOT_CONFIG["owner"]):
+            new_id = int(msg.text.lower().split(msg.text.lower().split(' ')[0])[1])
+            is_admin = False
+            if len(Admins > 1):
+                for i in range(0, Admins):
+                    if Admins[i]["id"] == new_id:
+                        is_admin = True
+                        break
+                if is_admin == True:
+                    Admins.append({"id": new_id})
+                    chats_writer.update_admins(PATH_AD, {"admins": Admins})
+                    await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_ALLOWED"].replace("{0}", str(new_id)), parse_mode='html')
+                else:
+                    await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_ALREADY_ALLOWED"].replace("{0}", str(new_id)), parse_mode='html')
+            else:
+                Admins.append({"id": new_id})
+                chats_writer.update_admins(PATH_AD, {"admins": Admins})
+                await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_ALLOWED"].replace("{0}", str(new_id)), parse_mode='html')
+        if msg.text.lower().startswith("/disallowe_admin ") and msg.from_user.id == int(BOT_CONFIG["owner"]):
+            target_id = int(msg.text.lower().split(msg.text.lower().split(' ')[0])[1])
+            if(len(Admins) > 0):
+                for i in range(0, len(Admins)):
+                    if Admins[i]["id"] == target_id:
+                        Admins.pop(i)
+            await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_DISALLOWED"].replace("{0}", str(new_id)), parse_mode='html')
 
 @bot.message_handler(content_types=["video"])
 async def messages(msg: types.Message):
