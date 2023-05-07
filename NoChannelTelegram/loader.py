@@ -32,3 +32,11 @@ def load_save(path: str):
             return save_data
     else:
         raise FileNotFoundError(path + " not found")
+    
+def load_allowed_admins(path: str):
+    if os.path.isfile(path):
+        with open(path) as data:
+            allowed_admins = json.load(data)
+            return allowed_admins
+    else:
+        raise FileNotFoundError(path + " not found")
