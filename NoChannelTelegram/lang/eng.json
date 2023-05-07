@@ -6,6 +6,7 @@
     "BOT_IN_CHAT_ENABLED": "<b>❕Now in this chat anonymous channels can't send messages</b>",
     "BOT_IN_CHAT_DISABLED": "<b>❕Now in this chat anonymous channels can send messages</b>",
     "BOT_ADMIN_ALLOWED": "<b>☑️Пользователь {0} теперь может управлять ботом</b>",
+    "BOT_ADMIN_ALREADY_ALLOWED": "<b>☑️Пользователь {0} теперь может управлять ботом</b>",
     "BOT_ADMIN_DISALLOWED": "<b>❗️Пользователь {0} теперь больше не админ</b>",
     "BOT_JOINED": "<b>I was added to \"{0}\" by \"{1}\"</b>",
     "HELP": "<b>Avaliable commands:</b>\n\n<b>- /help</b> - get bot commands\n<b>- /initialize_chat</b> - set up chat\n<b>- /disable_chat</b> - disable chat protecting\n<b>- /enable_chat</b> - enable chat protecting\n<b>- /set_lang {lang}</b> - set other lang in bot",
