@@ -44,7 +44,7 @@ async def messages(msg: types.Message):
         else:
             await bot.delete_message(msg.chat.id, msg.message_id)
 
-    if msg.chat.id != msg.from_user.id and (msg.from_user.id == int(BOT_CONFIG["owner"]) or (len(Admins) > 0 and Admins["id"] == msg.from_user.id)):
+    if msg.chat.id != msg.from_user.id and (msg.from_user.id == int(BOT_CONFIG["owner"]) or check_admin(Admins, msg.from_user.id) == True):
         if msg.text.lower() == "/initialize_chat" or msg.text.lower() == "/initialize_chat@" + bot_info.username.lower():
             chat_writen = False
             if(len(Chats) > 0):
@@ -124,8 +124,8 @@ async def messages(msg: types.Message):
         if msg.text.lower().startswith("/allowe_admin ") and msg.from_user.id == int(BOT_CONFIG["owner"]):
             new_id = int(msg.text.lower().split(msg.text.lower().split(' ')[0])[1])
             is_admin = False
-            if len(Admins > 1):
-                for i in range(0, Admins):
+            if len(Admins) > 0:
+                for i in range(0, len(Admins)):
                     if Admins[i]["id"] == new_id:
                         is_admin = True
                         break
@@ -145,7 +145,7 @@ async def messages(msg: types.Message):
                 for i in range(0, len(Admins)):
                     if Admins[i]["id"] == target_id:
                         Admins.pop(i)
-            await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_DISALLOWED"].replace("{0}", str(new_id)), parse_mode='html')
+            await bot.send_message(msg.from_user.id, bot_lang["BOT_ADMIN_DISALLOWED"].replace("{0}", str(target_id)), parse_mode='html')
 
 @bot.message_handler(content_types=["video"])
 async def messages(msg: types.Message):
@@ -254,5 +254,14 @@ async def messages(msg: types.Message):
 async def ncm(msg: types.Message):
     if msg.new_chat_members[0].id == bot_info.id:
         await bot.send_message(msg.chat.id, bot_lang["BOT_JOINED"], parse_mode='html')
+
+def check_admin(admins, id: int):
+    is_admin = False
+    if len(admins) > 0:
+        for i in range(0, len(admins)):
+            if admins[i]["id"] == id:
+                is_admin = True
+                break
+    return is_admin
 
 asyncio.run(bot.infinity_polling(skip_pending=True))
