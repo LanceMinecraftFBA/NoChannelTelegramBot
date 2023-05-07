@@ -7,7 +7,7 @@
     "BOT_IN_CHAT_DISABLED": "<b>❕Anonim kanallar endi bu chatda xabar yozishlari mumkin</b>",
     "BOT_ADMIN_ALREADY_ALLOWED": "<b>⛔️Foydalanuvchi {0} allaqachon administrator</b>",
     "BOT_ADMIN_ALLOWED": "<b>☑️Foydalanuvchi {0} endi botni boshqarishi mumkin</b>",
-    "BOT_ADMIN_DISALLOWED": "<b>❗️Foydalanuvchi {0}endi admin emas</b>",
+    "BOT_ADMIN_DISALLOWED": "<b>❗️Foydalanuvchi {0} endi admin emas</b>",
     "BOT_JOINED": "<b>Menga qo'shildi \"{0}\" foydalanuvchi \"{1}\"</b>",
     "HELP": "<b>Mavjud buyruqlar:</b>\n\n<b>- /help</b> - bot buyruqlarini oling\n<b>- /initialize_chat</b> - konfiguratsiyaga chat qo'shing\n<b>- /disable_chat</b> - ushbu chatda himoyani o'chiradi\n<b>- /enable_chat</b> - chat himoyasini qayta yoqing\n<b>- /set_lang {til}</b> - bot tilini o'rnating",
     "LANG_NOT_FOUND": "<b>🔍❌Til lang jildida topilmadi. Til noto'g'ri yoki jildda mavjud emas</b>",
