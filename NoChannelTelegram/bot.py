@@ -26,7 +26,7 @@ bot_info = types.User(0, True, "Null")
 
 @bot.message_handler(content_types=["text"])
 async def messages(msg: types.Message):
-    global bot_lang, lang
+    global bot_lang
     bot_info = await bot.get_me()
     chat = {"id": msg.chat.id, "enabled": False}
     if(len(Chats) > 0):
@@ -101,7 +101,7 @@ async def messages(msg: types.Message):
                 chats_writer.update_lang(PATH_SL, {"lang": new_lang})
                 await bot.send_message(msg.chat.id, bot_lang["LANG_INSTALLED"], parse_mode="html")
             except FileNotFoundError:
-                lang = l.load_lang(l.load_save(PATH_SL)["lang"], PATH_LANG)
+                bot_lang = l.load_lang(l.load_save(PATH_SL)["lang"], PATH_LANG)
                 await bot.send_message(msg.chat.id, bot_lang["LANG_NOT_FOUND"], parse_mode='html')
 
     elif msg.chat.id == msg.from_user.id:
@@ -113,7 +113,7 @@ async def messages(msg: types.Message):
                 chats_writer.update_lang(PATH_SL, {"lang": new_lang})
                 await bot.send_message(msg.chat.id, bot_lang["LANG_INSTALLED"], parse_mode="html")
             except FileNotFoundError:
-                lang = l.load_lang(l.load_save(PATH_SL)["lang"], PATH_LANG)
+                bot_lang = l.load_lang(l.load_save(PATH_SL)["lang"], PATH_LANG)
                 await bot.send_message(msg.chat.id, bot_lang["LANG_NOT_FOUND"], parse_mode='html')
         if msg.text.lower() == "/help":
             await bot.send_message(msg.chat.id, bot_lang["HELP"], parse_mode='html')
