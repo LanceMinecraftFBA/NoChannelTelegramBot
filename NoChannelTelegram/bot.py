@@ -105,6 +105,16 @@ async def messages(msg: types.Message):
                 await bot.send_message(msg.chat.id, bot_lang["LANG_NOT_FOUND"], parse_mode='html')
 
     elif msg.chat.id == msg.from_user.id:
+         if msg.text.lower().startswith("/set_lang "):
+            new_lang = msg.text.lower().split(msg.text.lower().split(" ")[0])[1].lower().replace(" ", "")
+            try:
+                temp_lang = l.load_lang(new_lang, PATH_LANG)
+                bot_lang = temp_lang
+                chats_writer.update_lang(PATH_SL, {"lang": new_lang})
+                await bot.send_message(msg.chat.id, bot_lang["LANG_INSTALLED"], parse_mode="html")
+            except FileNotFoundError:
+                lang = l.load_lang(l.load_save(PATH_SL)["lang"], PATH_LANG)
+                await bot.send_message(msg.chat.id, bot_lang["LANG_NOT_FOUND"], parse_mode='html')
         if msg.text.lower() == "/help":
             await bot.send_message(msg.chat.id, bot_lang["HELP"], parse_mode='html')
         if msg.text.lower() == "/getmyid":
