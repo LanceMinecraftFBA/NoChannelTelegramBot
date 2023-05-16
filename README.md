@@ -33,7 +33,7 @@ git clone https://github.com/LanceMinecraftFBA/NoChannelTelegramBot.git
 ```
 ## Avaliable languages
 - Russian🇷🇺
-- English🇬🇧
+- English🇬🇧(60%)
 - Chinese🇨🇳 (by @Corvych)
 - Ukranian🇺🇦 (by @sunphon1x)
 - Uzbek🇺🇿 (By @Vayner_Arkadiy)
